@@ -154,7 +154,53 @@ backgroundImage.addEventListener('click', () => {
 });
 /** Change bogy background block END */
 
+
+
 const form = document.querySelector('form');
+const input = document.querySelector('#searchInput');
+form.addEventListener('submit', formSubmitted);
+
+/** render data for new city */
+function formSubmitted(event) {
+  event.preventDefault();
+
+  // get cityInfo
+  const cityInfo = new CityInfo();
+
+  cityInfo
+    .getCityInfo(input.value, languageSelected.value.toLowerCase())
+    .then((result) => {
+      const ui = new UI();
+
+      ui.renderCityData(
+        result.results[0],
+        languageSelected.value.toLowerCase()
+      );
+
+      // Get  weather
+      const weather = new WeatherData(
+        input.value,
+        languageSelected.value.toLowerCase(),
+        result.results[0].components.country_code.toUpperCase()
+      );
+
+      weather
+        .getWeatherData()
+        .then((result) => {
+          ui.renderWeather(result.data, languageSelected.value.toLowerCase());
+        })
+        .catch((err) => console.log('wheatherData', err));
+
+      const map = new Map();
+      map.renderMap(
+        result.results[0].geometry.lng,
+        result.results[0].geometry.lat
+      );
+    })
+    .catch((err) => console.log('cityinfo', err));
+}
+/** render data for new city END */
+
 
 /** func to get days and month names */
 (function () {
