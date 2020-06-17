@@ -73,7 +73,7 @@ languageSelected.addEventListener('change', () => {
       input.value === '' ? localStorage.getItem('userCity') : input.value,
       languageSelected.value.toLowerCase()
     )
-    .then(result => {
+    .then((result) => {
       const ui = new UI();
 
       ui.renderCityData(
@@ -90,10 +90,10 @@ languageSelected.addEventListener('change', () => {
 
       weather
         .getWeatherData()
-        .then(result => {
+        .then((result) => {
           ui.renderWeather(result.data, languageSelected.value.toLowerCase());
         })
-        .catch(err => console.log('wheatherData', err));
+        .catch((err) => console.log('wheatherData', err));
 
       const map = new Map();
       map.renderMap(
@@ -101,7 +101,7 @@ languageSelected.addEventListener('change', () => {
         result.results[0].geometry.lat
       );
     })
-    .catch(err => console.log('cityinfo', err));
+    .catch((err) => console.log('cityinfo', err));
 });
 /** change language block END */
 
@@ -154,10 +154,8 @@ backgroundImage.addEventListener('click', () => {
 });
 /** Change bogy background block END */
 
-
-
-const form = document.querySelector('form');
 const input = document.querySelector('#searchInput');
+const form = document.querySelector('form');
 form.addEventListener('submit', formSubmitted);
 
 /** render data for new city */
@@ -200,7 +198,6 @@ function formSubmitted(event) {
     .catch((err) => console.log('cityinfo', err));
 }
 /** render data for new city END */
-
 
 /** func to get days and month names */
 (function () {
@@ -298,3 +295,39 @@ function formSubmitted(event) {
   };
 })();
 /** func to get days and month names END */
+
+/** convert temperature */
+const fahrenheit = document.querySelector('.temp__farenheitBtn');
+const celsius = document.querySelector('.temp__celsBtn');
+const temperatureDegree = document.querySelector('.weather-today_temperature');
+const forecastTemperature = document.querySelectorAll('.forecast-temp');
+
+function toFahrenheit(temperatureInCels) {
+  return `${Math.floor((+temperatureInCels.slice(0, -1) * 9) / 5 + 32)}°`;
+}
+
+function convertTemperature() {
+  if (celsius.classList.contains('temp-button_clicked')) {
+    celsius.classList.remove('temp-button_clicked');
+    fahrenheit.classList.add('temp-button_clicked');
+
+    [...forecastTemperature].forEach((el) => {
+      el.textContent = toFahrenheit(el.textContent);
+    });
+
+    temperatureDegree.textContent = toFahrenheit(temperatureDegree.textContent);
+  } else {
+    fahrenheit.classList.remove('temp-button_clicked');
+    celsius.classList.add('temp-button_clicked');
+
+    [...forecastTemperature].forEach((el, i) => {
+      el.textContent = `${localStorage.getItem(`day${i}`)}°`;
+    });
+
+    temperatureDegree.textContent = `${localStorage.getItem('today')}°`;
+  }
+}
+
+fahrenheit.addEventListener('click', convertTemperature);
+celsius.addEventListener('click', convertTemperature);
+/** convert temperature END */

@@ -13,7 +13,6 @@ export default class UI {
     this.tempApparent = document.querySelector('.temp-apparent');
     this.humidity = document.querySelector('.humidity');
     this.forecastDay = document.querySelectorAll('.forecast-day');
-    // this.forecast = document.querySelectorAll('.forecast-temperature');
     this.forecastTemp = document.querySelectorAll('.forecast-temp');
     this.forecastIcon = document.querySelectorAll('.forecast-icon');
     this.searchButton = document.querySelector('.search-button');
@@ -109,7 +108,7 @@ export default class UI {
 
     this.city.textContent = `${cityName.join(',')}`;
     if (lang === 'be') {
-      this.searchButton.textContent = 'ШУКАТЬ';
+      this.searchButton.textContent = 'ШУКАЦЬ';
       this.latitude.textContent = `Шырата: ${latitude}`;
       this.longitude.textContent = `Даугата: ${longitude}`;
       console.log('ctInfo', cityInfo);
