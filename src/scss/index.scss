@@ -675,3 +675,109 @@ body {
    }
 }
 // @media (max-width: 500px)
+
+@media (max-width: 470px) {
+   .header {
+
+      & .header__buttons {
+         margin-left: 0;
+      }
+
+      .search-container {
+         padding: 0;
+         min-width: 83%;
+
+         & .talkBtn {
+            right: 29%;
+         }
+
+         & .search-button {
+            font-size: 16px;
+         }
+
+      }
+   }
+
+   .main {
+      & .weatherContainer {
+         & .weatherDescription {
+            height: 360px;
+
+            & .city-name {
+               font-size: 1.4em;
+            }
+
+            & .current-date {
+               padding: 5px 15px;
+               font-size: 1.2em;
+            }
+
+            & .weather-today {
+
+               & .weather-today_temperature {
+                  width: 40%;
+                  font-size: 5em;
+               }
+
+               & .weather-today_description {
+                  width: 60%;
+
+                  & .weather-icon {
+                     width: 60px;
+                  }
+
+                  & .description-wrapper {
+
+                     & .summary {
+                        font-size: 1.3em;
+                     }
+
+                     & .humidity,
+                     & .temp-apparent,
+                     & .wind-speed {
+                        font-size: 1.2em;
+                     }
+                  }
+               }
+            }
+         }
+
+
+         & .future-forecast {
+            & .forecast-card {
+
+               & .forecast-day {
+                  font-size: 1.1em;
+               }
+
+               & .forecast-temp {
+                  margin-top: 30%;
+                  font-size: 2.8em;
+               }
+
+               & .forecast-icon {
+                  width: 40px;
+                  right: 5%;
+                  top: 24%;
+               }
+            }
+         }
+      }
+
+
+      & .map-coordinates {
+
+         & .map {
+            height: 350px;
+         }
+
+         & .coordinate-city {
+            height: 100px;
+            font-size: 1.6em;
+         }
+      }
+
+   }
+
+}
+// @media (max-width: 470px)
