@@ -584,3 +584,94 @@ body {
    }
 }
 // @media (max-width: 600px)
+
+@media (max-width: 500px) {
+   .header {
+
+      & .header__buttons {
+         margin-left: 0;
+         min-width: 90%;
+
+         & .refresh-button {
+            margin: 0;
+         }
+      }
+
+      & .search-container {
+         margin-top: 10px;
+         padding: 0 15px 0;
+         margin-bottom: 10px;
+
+         & .talkBtn {
+            right: 28%;
+         }
+      }
+   }
+
+   .main {
+
+      & .weatherContainer {
+         & .weatherDescription {
+            height: 350px;
+
+            & .city-name {
+               font-size: 1.6em;
+            }
+
+            & .current-date {
+               padding: 5px 15px;
+               font-size: 1.3em;
+            }
+
+            & .weather-today {
+
+               & .weather-today_temperature {
+                  font-size: 8em;
+               }
+
+               & .weather-today_description {
+
+                  & .weather-icon {
+                     width: 70px;
+                  }
+
+                  & .description-wrapper {
+
+                     & .summary {
+                        font-size: 1.4em;
+                     }
+
+                     & .humidity,
+                     & .temp-apparent,
+                     & .wind-speed {
+                        font-size: 1.2em;
+                     }
+                  }
+               }
+            }
+         }
+
+         & .future-forecast {
+            & .forecast-card {
+
+               & .forecast-day {
+                  font-size: 1.2em;
+                  margin-top: 5%;
+                  margin-left: 5%;
+               }
+
+               & .forecast-temp {
+                  margin-top: 15%;
+                  font-size: 2.8em;
+               }
+
+               & .forecast-icon {
+                  right: 6%;
+                  top: 24%;
+               }
+            }
+         }
+      }
+   }
+}
+// @media (max-width: 500px)
