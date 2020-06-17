@@ -1,5 +1,6 @@
 import UserGeolocation from './modules/userGeolocation';
 import CityInfo from './modules/cityInfo';
+import WeatherData from './modules/weatherData';
 
 import './scss/index.scss'; // scss
 
@@ -17,10 +18,22 @@ window.addEventListener('load', () => {
       cityInfo
         .getCityInfo(city, languageSelected.value.toLowerCase())
         .then(result => {
-          
+          console.log(result);
 
-          console.log(result)
+          // Get  weather
+          const weather = new WeatherData(
+            city,
+            languageSelected.value.toLowerCase(),
+            result.results[0].components.country_code.toUpperCase()
+          );
 
+          // render weather
+          weather
+            .getWeatherData()
+            .then((result) => {
+              console.log(result);
+            })
+            .catch((err) => console.log('wheatherData', err));
 
         })
         .catch(err => console.log('cityinfo', err));
