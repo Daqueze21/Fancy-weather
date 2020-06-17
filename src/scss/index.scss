@@ -314,3 +314,75 @@ body {
    }
    // map coordinates
 }
+//base rules
+
+@media (max-width: 1200px) {
+   .main {
+      & .weatherContainer {
+
+         & .weatherDescription {
+
+            & .city-name {
+               font-size: 1.8em;
+            }
+
+            & .current-date {
+               font-size: 1.4em;
+            }
+
+            & .weather-today {
+
+
+               & .weather-today_temperature {
+                  font-size: 8em;
+               }
+
+               & .weather-icon-folder {
+                  margin-top: 10px;
+                  margin-bottom: 10px;
+               }
+
+               & .description-wrapper {
+
+                  & .summary {
+                     font-size: 1.5em;
+                  }
+
+                  & .humidity,
+                  & .temp-apparent,
+                  & .wind-speed {
+                     font-size: 1.3em;
+                     margin: 5px;
+                  }
+
+               }
+            }
+         }
+
+         .future-forecast {
+            & .forecast-card {
+
+               & .forecast-day {
+                  font-size: 1.2em;
+                  margin-top: 5%;
+                  margin-left: 5%;
+               }
+
+               & .forecast-temp {
+                  font-size: 3.2em;
+                  margin-left: 7%;
+                  margin-top: 10%;
+               }
+
+               & .forecast-icon {
+                  width: 45px;
+                  right: 5%;
+                  top: 20%;
+               }
+            }
+         }
+      }
+   }
+}
+
+// @media (max-width: 1200px)
