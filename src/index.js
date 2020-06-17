@@ -1,6 +1,7 @@
 import UserGeolocation from './modules/userGeolocation';
 import CityInfo from './modules/cityInfo';
 import WeatherData from './modules/weatherData';
+import Map from './modules/map';
 
 import './scss/index.scss'; // scss
 
@@ -17,7 +18,7 @@ window.addEventListener('load', () => {
 
       cityInfo
         .getCityInfo(city, languageSelected.value.toLowerCase())
-        .then(result => {
+        .then((result) => {
           console.log(result);
 
           // Get  weather
@@ -35,14 +36,19 @@ window.addEventListener('load', () => {
             })
             .catch((err) => console.log('wheatherData', err));
 
+          // render map
+          const map = new Map();
+          map.renderMap(
+            result.results[0].geometry.lng,
+            result.results[0].geometry.lat
+          );
         })
-        .catch(err => console.log('cityinfo', err));
+        .catch((err) => console.log('cityinfo', err));
 
       localStorage.setItem('userCity', city);
     })
     .catch((err) => console.log('geolocation', err));
 });
-
 
 /** change language block */
 const languageSelected = document.querySelector('.language select');
