@@ -3,9 +3,11 @@ import CityInfo from './modules/cityInfo';
 import WeatherData from './modules/weatherData';
 import Map from './modules/map';
 import RefreshBackground from './modules/refreshBackground';
+import UI from './modules/ui';
 
 import './scss/index.scss'; // scss
 
+/** render user city weather data */
 window.addEventListener('load', () => {
   // Get user geolocation
   const geolocation = new UserGeolocation();
@@ -20,7 +22,12 @@ window.addEventListener('load', () => {
       cityInfo
         .getCityInfo(city, languageSelected.value.toLowerCase())
         .then((result) => {
-          console.log(result);
+          const ui = new UI();
+
+          ui.renderCityData(
+            result.results[0],
+            languageSelected.value.toLowerCase()
+          );
 
           // Get  weather
           const weather = new WeatherData(
@@ -33,7 +40,10 @@ window.addEventListener('load', () => {
           weather
             .getWeatherData()
             .then((result) => {
-              console.log(result);
+              ui.renderWeather(
+                result.data,
+                languageSelected.value.toLowerCase()
+              );
             })
             .catch((err) => console.log('wheatherData', err));
 
@@ -50,6 +60,7 @@ window.addEventListener('load', () => {
     })
     .catch((err) => console.log('geolocation', err));
 });
+/** render user city weather data END */
 
 /** change language block */
 const languageSelected = document.querySelector('.language select');
