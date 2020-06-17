@@ -384,5 +384,67 @@ body {
       }
    }
 }
-
 // @media (max-width: 1200px)
+
+@media (max-width: 960px) {
+   .main {
+      & .weather-today {
+
+         & .weather-today_temperature {
+            font-size: 6em;
+         }
+
+         & .weather-icon-folder {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+         }
+
+         & .weather-icon {
+            width: 75px;
+         }
+
+         & .description-wrapper {
+
+            & .summary {
+               font-size: 1.4em;
+            }
+
+            & .humidity,
+            & .temp-apparent,
+            & .wind-speed {
+               font-size: 1.2em;
+            }
+         }
+      }
+
+      & .weatherContainer {
+         & .future-forecast {
+            & .forecast-card {
+
+               & .forecast-day {
+                  font-size: 1.2em;
+               }
+
+               & .forecast-temp {
+                  margin-top: 22%;
+                  font-size: 3em;
+               }
+
+               & .forecast-icon {
+                  right: 5%;
+                  top: 20%;
+               }
+            }
+         }
+      }
+
+      .map-coordinates {
+
+         & .coordinate-city {
+            font-size: 1.5em;
+         }
+      }
+   }
+}
+// @media (max-width: 960px)
