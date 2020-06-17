@@ -65,6 +65,44 @@ window.addEventListener('load', () => {
 /** change language block */
 const languageSelected = document.querySelector('.language select');
 
+languageSelected.addEventListener('change', () => {
+  const cityInfo = new CityInfo();
+
+  cityInfo
+    .getCityInfo(
+      input.value === '' ? localStorage.getItem('userCity') : input.value,
+      languageSelected.value.toLowerCase()
+    )
+    .then(result => {
+      const ui = new UI();
+
+      ui.renderCityData(
+        result.results[0],
+        languageSelected.value.toLowerCase()
+      );
+
+      // Get  weather
+      const weather = new WeatherData(
+        input.value === '' ? localStorage.getItem('userCity') : input.value,
+        languageSelected.value.toLowerCase(),
+        result.results[0].components.country_code.toUpperCase()
+      );
+
+      weather
+        .getWeatherData()
+        .then(result => {
+          ui.renderWeather(result.data, languageSelected.value.toLowerCase());
+        })
+        .catch(err => console.log('wheatherData', err));
+
+      const map = new Map();
+      map.renderMap(
+        result.results[0].geometry.lng,
+        result.results[0].geometry.lat
+      );
+    })
+    .catch(err => console.log('cityinfo', err));
+});
 /** change language block END */
 
 /** Voice recognition block */
@@ -97,7 +135,6 @@ talkBtn.addEventListener('click', () => {
 /** Change bogy background block */
 const bodyBackground = new RefreshBackground();
 const body = document.querySelector('body');
-const form = document.querySelector('form');
 const backgroundImage = document.querySelector('.refresh-button');
 
 bodyBackground
@@ -116,6 +153,8 @@ backgroundImage.addEventListener('click', () => {
     .catch((err) => console.log(err));
 });
 /** Change bogy background block END */
+
+const form = document.querySelector('form');
 
 /** func to get days and month names */
 (function () {
