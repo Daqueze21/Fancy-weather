@@ -524,3 +524,63 @@ body {
    }
 }
 // @media (max-width: 830px)
+
+@media (max-width: 600px) {
+   .header {
+
+      & .header__buttons {
+         margin-left: 0;
+         min-width: 85%;
+
+         & .refresh-button {
+            margin: 0;
+         }
+      }
+
+      & .search-container {
+         max-width: 85%;
+         padding: 0 15px 0;
+         margin-bottom: 10px;
+
+         & .talkBtn {
+            right: 27%;
+         }
+      }
+   }
+
+   .main {
+
+      & .weatherContainer {
+         width: 85%;
+
+         & .future-forecast {
+
+            & .forecast-card {
+
+               & .forecast-day {
+                  font-size: 1.2em;
+                  margin-top: 5%;
+                  margin-left: 5%;
+               }
+
+               & .forecast-temp {
+                  margin-top: 12%;
+                  font-size: 2.8em;
+               }
+
+               & .forecast-icon {
+                  width: 40px;
+                  right: 7%;
+                  top: 22%;
+               }
+            }
+         }
+      }
+
+      & .map-coordinates {
+         margin-top: 20px;
+         width: 85%;
+      }
+   }
+}
+// @media (max-width: 600px)
