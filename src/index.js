@@ -116,3 +116,100 @@ backgroundImage.addEventListener('click', () => {
     .catch((err) => console.log(err));
 });
 /** Change bogy background block END */
+
+/** func to get days and month names */
+(function () {
+  const daysEN = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  const daysRU = [
+    'Воскресенье',
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота',
+  ];
+  const daysBE = [
+    'Нядзеля',
+    'Понядзелак',
+    'Аўторак',
+    'Серада',
+    'Чацьверг',
+    'Пятніца',
+    'Субота',
+  ];
+  const monthsEN = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  const monthsRU = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
+  ];
+
+  const monthsBE = [
+    'Студзень',
+    'Люты',
+    'Сакавiк',
+    'Красавiк',
+    'Май',
+    'Червень',
+    'Лiпень',
+    'Жнiвень',
+    'Верасень',
+    'Кастрычнiк',
+    'Лiстапад',
+    'Снежань',
+  ];
+
+  Date.prototype.getMonthName = function () {
+    if (languageSelected.value === 'BE') {
+      return monthsBE[this.getMonth()];
+    }
+    if (languageSelected.value === 'RU') {
+      return monthsRU[this.getMonth()];
+    }
+
+    return monthsEN[this.getMonth()];
+  };
+  Date.prototype.getDayName = function () {
+    if (languageSelected.value === 'BE') {
+      return daysBE[this.getDay()];
+    }
+    if (languageSelected.value === 'RU') {
+      return daysRU[this.getDay()];
+    }
+
+    return daysEN[this.getDay()];
+  };
+})();
+/** func to get days and month names END */
