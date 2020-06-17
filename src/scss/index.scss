@@ -448,3 +448,79 @@ body {
    }
 }
 // @media (max-width: 960px)
+
+@media (max-width: 830px) {
+   .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 140px;
+
+
+      & .header__buttons {
+         margin-left: 0;
+         min-width: 88%;
+         padding: 15px 15px 0;
+         display: flex;
+         justify-content: space-between;
+
+         & .refresh-button {
+            margin: 0;
+         }
+
+      }
+
+      & .search-container {
+         min-width: 88%;
+         padding: 0 15px 0;
+         margin-bottom: 10px;
+
+         & .talkBtn {
+            right: 23%;
+         }
+      }
+   }
+
+   .main {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      padding: 15px 0;
+
+      & .weatherContainer {
+
+         & .future-forecast {
+
+            & .forecast-card {
+
+               & .forecast-day {
+                  font-size: 1.2em;
+                  margin-top: 5%;
+                  margin-left: 5%;
+               }
+
+               & .forecast-temp {
+                  margin-top: 7%;
+                  font-size: 3.5em;
+               }
+
+               & .forecast-icon {
+                  right: 7%;
+                  top: 23%;
+               }
+            }
+         }
+      }
+
+      & .weatherContainer {
+         width: 85%;
+      }
+
+      & .map-coordinates {
+         margin-top: 20px;
+         width: 85%;
+      }
+   }
+}
+// @media (max-width: 830px)
