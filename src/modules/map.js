@@ -1,13 +1,11 @@
 export default class Map {
   constructor() {
-    // mapKey
-    this.key =
-      'pk.eyJ1IjoiZGFxdWV6ZTIxIiwiYSI6ImNrYXp4YzgxcTAwc2QycnFsaWRtZmtidmgifQ.EGgcHrEkAXOKvAmb3FWwtw';
+
   }
 
   // fetch city data from API
   async renderMap(lng, lat) {
-    mapboxgl.accessToken =this.key;
+    mapboxgl.accessToken = process.env.Map_KEY;
     const map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
@@ -16,7 +14,6 @@ export default class Map {
     });
   }
 }
-
 
 // map
 

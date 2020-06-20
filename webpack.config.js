@@ -3,48 +3,48 @@ const HTMLPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   // optimization: {
-  //   minimizer: [new OptimizeCssAssetsPlugin({}), 
+  //   minimizer: [new OptimizeCssAssetsPlugin({}),
   //     new UglifyJsPlugin()
   //   ]
   // },
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
-    port: 4200
+    port: 4200,
   },
   plugins: [
     new HTMLPlugin({
       filename: 'index.html',
-      template: './src/index.html'
+      template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css'
-    })
+      filename: 'style.css',
+    }),
+    new Dotenv()
   ],
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.js$/, 
+        test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader" 
-      }
-
-    ]
-    
-  }
+        loader: 'babel-loader',
+      },
+    ],
+  },
 };

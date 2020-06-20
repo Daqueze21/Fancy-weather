@@ -2,12 +2,15 @@
 
 ## Task
 ```
-https://github.com/rolling-scopes-school/tasks/blob/master/tasks/fancy-weather.md
+[TASK](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/fancy-weather.md)
 ```
+
 ## Deploy
 ```
-https://daqueze21-fancy-weather.netlify.app/
+[Netlify deploy](
+https://daqueze21-fancy-weather.netlify.app/)
 ```
+
 ## Project setup
 ```
 npm install
