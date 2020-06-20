@@ -1,15 +1,15 @@
 # Fancy-weather
 
 ## Task
-```
+
 [TASK](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/fancy-weather.md)
-```
+
 
 ## Deploy
-```
+
 [Netlify deploy](
 https://daqueze21-fancy-weather.netlify.app/)
-```
+
 
 ## Project setup
 ```
